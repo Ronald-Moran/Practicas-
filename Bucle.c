@@ -1,17 +1,23 @@
 #include <stdio.h>
-
-#define TARIFA1 1.2
-#define TARIFA2 1.0
-#define TARIFA3 0.9
+#include <string.h>
 
 int main() {
-    int numero;
-    printf(" diguite un numero \n"); scanf("%d", &numero);
-    if (numero > 0){
-        puts("Es un numero positivo");
-    } else {
-        puts("numero negativo");
+
+    char Nombre[31],preferencias[41];
+    puts("Ingrese su nombre y genero favorito de anime");
+    fgets(Nombre,30,stdin);
+    fgets(preferencias,30,stdin);
+    preferencias[strcspn(preferencias, "\n")] = 0;
+
+    if (strcmp(preferencias,"Romanse") == 0) {
+    puts("Uff hermano eres un conosedor");
     }
+    else if (strcmp(preferencias,"Shonen") == 0) {
+        puts("umm Bueno no esta mal");
+    } else {
+        puts("Ala solprendente");
+    }
+ 
 
 
     return 0;

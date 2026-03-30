@@ -1,46 +1,41 @@
 #include <stdio.h>
+#include <string.h>
+
+double calculardescuento (double monto, double VIP) {
+    return (monto >= 100 || VIP == 1236) ? 0.20 : 0.0;
+
+}
 
 int main() {
 
-    int horas;
-    const float TASA_ies = 0.0945;
-    double ganancia, ganancia_hora, sueldo_mensual, aporte_ies, sueldo_neto, tiket;
+    double PAG,VIP,DESCUENTO, Precio;
+    PAG = 0;
+    char juego[50];
+    puts("Minecraft cuesta $50  \n Silson $3.00 \n Roblox $100 \n Ingrese su el nombre del juego que desea comprar");
+    fgets(juego,sizeof(juego),stdin);
+    juego[strcspn(juego, "\n")] = 0;
+    puts("si es usuario VIP dijite su clave. Si no lo es esciba 0");
+    scanf("%lf", &VIP);
 
-    printf("\nIngrese su numero de horas laborales\n"); scanf("%d", &horas);
-    printf("\n si tiene algun aumento escriba el codigo de su tiket\n"); scanf("%lf", &tiket);
-    ganancia_hora = 3.00;
-    if (tiket == 23456) {
-        ganancia_hora += ganancia_hora / 4;
-        printf("25 porciento de aumento");
-    } else {
-        printf("Codigo no valido");
+    if (strstr(juego,"Minecraft") != NULL) {
+    PAG += 50;
+    }
+    if (strstr(juego,"Silson") != NULL) {
+    PAG += 3.00;
+    }
+    if (strstr(juego,"Roblox") != NULL) {
+    PAG += 100;
     }
 
-    ganancia = horas * ganancia_hora;
-    aporte_ies = ganancia * TASA_ies;
-    sueldo_neto = ganancia - aporte_ies;
-    printf("\n--- Detalle de Pago ---\n");
+   DESCUENTO = calculardescuento(PAG,VIP);
+   Precio = PAG - (PAG * DESCUENTO);
+   
+   if (DESCUENTO == 0.20) {
+    printf("¡A resivido un descuento del 20 porciento! El total de su compra es de: %.2lf", Precio);
+   } else {
+    printf("El total de su compra es de: %.2lf", Precio);
+   }
 
-    switch(horas) {
-        case 8:
-        printf("Su sueldo diario es: $%.2lf \n", ganancia);
-        break;
-
-        case 160:
-        printf("Su sueldo mensual es : $%.2lf\n", ganancia);
-        break;
-
-        case 1920:
-        printf("su sueldo anual es: $%.2lf\n", ganancia);
-        break;
-
-        default:
-        printf("su sueldo es: $%.2lf\n", ganancia);        
-        break;
-
-    }
-        printf("Descuento IESS: $%.2lf\n", aporte_ies);
-        printf("Ganancia Real:  $%.2lf\n", sueldo_neto);
-        
+   
     return 0;
 }

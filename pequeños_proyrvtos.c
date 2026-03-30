@@ -1,16 +1,15 @@
 #include <stdio.h>
+#include <string.h>
 
 int main() {
  
-int Horas,Minutos, Segundos, T1,T2,T3, FINAL;
-printf("Ingrese la cantidad de Horas, Segundos y Minutos"); scanf("%d %d %d",Horas,Minutos,Segundos );
+char texto[] = "hola";
+int ant = strlen(texto);
+int contar = 0;
 
-T1 = Horas * 3600;
-T2 = Minutos * 60;
-T3 = Segundos * 1;
-FINAL = T1 + T2 + T3;
-
-printf("La cantidad total de tiempo en segundos es: %d ", FINAL);
+for(int i = ant - 1; i < sizeof(texto); i++) {
+       
+}
 
     return 0;
 }

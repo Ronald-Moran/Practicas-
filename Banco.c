@@ -1,20 +1,31 @@
 #include <stdio.h>
+#include <math.h>
+
+int Comprovar( int n1) {
+ return n1 % 2;
+}
 
 int main () {
-
-   double trimestre1,trimestre2,trimestre3,PARCIALES,examen_final,Trabajo_final, calificasion_final;
-
-   printf("\n Ingrese Las calificasiones sus tres trimestres \n"); 
-   scanf("%lf %lf %lf",&trimestre1,&trimestre2,&trimestre3 );
-   printf("\n Ingese la calificasion de su Examen final \n"); scanf("%lf", &examen_final);
-   printf("Ingrese su la calificasion de su proyecto\n"); scanf("%lf", &Trabajo_final);
-
-   PARCIALES = (trimestre1 + trimestre2 + trimestre3) / 3 * 0.55;
-   examen_final *= 0.30;
-   Trabajo_final *= 0.15;
-   calificasion_final = PARCIALES + examen_final + Trabajo_final;
-   printf("Su calificasion final es %.2lf", calificasion_final);
-   
+ int Numero, variable;
+ double rais;
+ puts("Inserte un numero");
+ scanf("%d", &Numero);
+ variable = Comprovar(Numero);
  
+
+ if (Numero >= 0) {
+    rais = sqrt(Numero);
+    printf("la raiz cuadrada de %d es %.2lf \n",Numero, rais);
+ } else {
+    puts("tiene raiz imaginaria ");
+ }
+
+ if (variable == 0 ){
+    puts("el numero es par");
+ } else {
+    puts("el numero es impar");
+ } 
+
+
     return 0;
 }
